@@ -8,20 +8,23 @@ const App = () => {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  // state = {
-  //   good: 0,
-  //   neutral: 0,
-  //   bad: 0,
-  // };
 
-  const handleFeedback = type => {
-    this.setState(prevState => ({
-      [type]: prevState[type] + 1
-    }))
+  const handleFeedback = option => {
+    // eslint-disable-next-line default-case
+    switch (option) {
+      case 'good':
+        setGood(prevGood => prevGood + 1);
+        break;
+      case 'neutral':
+        setNeutral(prevNeutral => prevNeutral + 1);
+        break;
+      case 'bad':
+        setBad(prevBad => prevBad + 1);
+        break;
+    }
   };
-  
+ 
  const countTotalFeedback = () => {
-  // const { good, neutral, bad } = this.state;
   return good + neutral + bad;
   };
 
@@ -34,7 +37,7 @@ const App = () => {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            // options={Object.keys(this.state)}
+            options={['good', 'neutral', 'bad']}
             onClick={handleFeedback}
           />
         </Section>
