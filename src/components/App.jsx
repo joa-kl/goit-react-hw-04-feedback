@@ -17,7 +17,7 @@ const App = () => {
     } else {
       setBad(prevBad => prevBad + 1);
     }
-   }
+  }
  
  const countTotalFeedback = () => {
   return good + neutral + bad;
