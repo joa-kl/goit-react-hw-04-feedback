@@ -10,19 +10,14 @@ const App = () => {
   const [bad, setBad] = useState(0);
 
   const handleFeedback = option => {
-    // eslint-disable-next-line default-case
-    switch (option) {
-      case 'good':
-        setGood(prevGood => prevGood + 1);
-        break;
-      case 'neutral':
-        setNeutral(prevNeutral => prevNeutral + 1);
-        break;
-      case 'bad':
-        setBad(prevBad => prevBad + 1);
-        break;
+    if (option === "good") {
+      setGood(prevGood => prevGood + 1);
+    } else if (option === "neutral") {
+      setNeutral(prevNeutral => prevNeutral + 1);
+    } else {
+      setBad(prevBad => prevBad + 1);
     }
-  };
+   }
  
  const countTotalFeedback = () => {
   return good + neutral + bad;
